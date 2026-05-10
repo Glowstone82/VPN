@@ -9,7 +9,6 @@ QR_Path="/qr"
 #V2Ray Configuration
 V2_Path="/v2"
 mkdir /wwwroot
-mv /v2 /usr/bin/v2
 
 if [ ! -d /etc/shadowsocks-libev ]; then  
   mkdir /etc/shadowsocks-libev
@@ -19,14 +18,12 @@ fi
 sed -e "/^#/d"\
     -e "s/\${PASSWORD}/${Password}/g"\
     -e "s/\${ENCRYPT}/${ENCRYPT}/g"\
-    -e "s|\${V2_Path}|${V2_Path}|g"\
     /conf/shadowsocks-libev_config.json >  /etc/shadowsocks-libev/config.json
 echo /etc/shadowsocks-libev/config.json
 cat /etc/shadowsocks-libev/config.json
 
 sed -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
-    -e "s|\${V2_Path}|${V2_Path}|g"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
     /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf 
