@@ -59,7 +59,7 @@ Copy the details after opening and import it to the client.
 	"password":"{password}",
 	"timeout":300,
 	"method":"chacha20-ietf-poly1305",
-	"mode": "tcp_only",
+	"mode": "tcp_and_udp",
 	"fast_open":false,
 	"reuse_port":true,
 	"no_delay":true,
